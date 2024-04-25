@@ -1,11 +1,9 @@
 import React from "react";
 import Counter from "./component/Counter";
-import { legacy_createStore as createStore } from "redux";
-import counterReducer from "./redux/counter";
 import { Provider } from "react-redux";
+import { store } from "./redux";
 
 const App = () => {
-  const store = createStore(counterReducer);
   return (
     <div>
       <Provider store={store}>
