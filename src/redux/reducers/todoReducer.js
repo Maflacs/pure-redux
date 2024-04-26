@@ -1,16 +1,24 @@
+import { ADD, CLEAR } from "../types/todoTypes";
+
 const initialState = {
-    todos: [{a:1}, {b:2}],
+  todos: [{ id: new Date().getTime(), text: "", completed: false }],
 };
 
 const todoReducer = (state = initialState, { type, payload }) => {
   switch (type) {
+    case ADD:
+      return {
+        todos: [
+          ...state.todos,
+          { id: new Date().getTime(), text: payload, completed: false },
+        ],
+      };
+      case CLEAR:
+        return initialState;
 
-  case "FIRST":
-    return { ...state, ...payload }
-
-  default:
-    return state
+    default:
+      return state;
   }
-}
+};
 
 export default todoReducer;
